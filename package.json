@@ -1,0 +1,45 @@
+{
+  "name": "ngmeta",
+  "version": "1.0.0",
+  "description": "A simple tool for updating meta-tags in an Angular 2 app.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "documentation": "yuidoc . -c yuidoc.json",
+    "start": "npm build",
+    "postinstall": "node postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelSolati/ngmeta.git"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "ng",
+    "ng2",
+    "meta",
+    "tags",
+    "seo"
+  ],
+  "author": "Michael Solati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelSolati/ngmeta/issues"
+  },
+  "homepage": "https://ngmeta.michaelsolati.com/",
+  "readme": "README.md",
+  "peerDependencies": {
+    "@angular/core": "^2.0"
+  },
+  "devDependencies": {
+    "@angular/common": "2.1.2",
+    "@angular/core": "2.1.2",
+    "@angular/platform-browser": "2.1.2",
+    "colors": "^1.1.2",
+    "rxjs": "5.0.0-beta.12",
+    "@types/core-js": "^0.9.34",
+    "typescript": "^2.0.6",
+    "zone.js": "^0.6.21"
+  }
+}

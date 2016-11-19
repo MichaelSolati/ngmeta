@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "stripInternal": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "removeComments": true,
+    "rootDir": "./",
+    "target": "es5",
+    "sourceMap": false
+  },
+  "files": [
+    "./index.ts",
+    "./src/ngmeta.service.ts",
+    "./src/tag-data.interface.ts"
+  ]
+}
