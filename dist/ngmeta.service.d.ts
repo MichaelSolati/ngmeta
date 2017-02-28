@@ -1,6 +1,6 @@
 import { RootRenderer } from "@angular/core";
 import { Router } from '@angular/router';
-import { TagData } from "./tag-data.interface";
+import { TagData, MetaData } from "./tag-data.interface";
 export declare class NGMeta {
     private _document;
     private _rootRenderer;
@@ -13,7 +13,7 @@ export declare class NGMeta {
     canonical: string;
     title: string;
     scrollEnabled: boolean;
-    createMeta(attribute: string, type: string, content: string): void;
+    createMeta(metaData: MetaData): void;
     setHead(tagData: TagData): void;
     private _removeTag(tagSelector);
     private _scrollToTop(evt);

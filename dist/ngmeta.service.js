@@ -68,13 +68,13 @@ var NGMeta = (function () {
         enumerable: true,
         configurable: true
     });
-    NGMeta.prototype.createMeta = function (attribute, type, content) {
+    NGMeta.prototype.createMeta = function (metaData) {
         try {
-            if (typeof attribute === "string" && typeof type === "string" && typeof content === "string") {
-                this._removeTag("[" + attribute + "=\"" + type + "\"]");
+            if (typeof metaData.attribute === "string" && typeof metaData.type === "string" && typeof metaData.content === "string") {
+                this._removeTag("[" + metaData.attribute + "=\"" + metaData.type + "\"]");
                 var meta = this._renderer.createElement(this._head, "meta");
-                this._renderer.setElementAttribute(meta, attribute, type);
-                this._renderer.setElementAttribute(meta, "content", content);
+                this._renderer.setElementAttribute(meta, metaData.attribute, metaData.type);
+                this._renderer.setElementAttribute(meta, "content", metaData.content);
             }
         }
         catch (e) { }
@@ -87,19 +87,21 @@ var NGMeta = (function () {
             if (tagData.name instanceof Array) {
                 for (var _i = 0, _a = tagData.name; _i < _a.length; _i++) {
                     var detail = _a[_i];
-                    this.createMeta("description", detail.type, detail.content);
+                    detail.attribute = "name";
+                    this.createMeta(detail);
                 }
             }
             if (tagData.property instanceof Array) {
                 for (var _b = 0, _c = tagData.property; _b < _c.length; _b++) {
                     var detail = _c[_b];
-                    this.createMeta("property", detail.type, detail.content);
+                    detail.attribute = "property";
+                    this.createMeta(detail);
                 }
             }
             if (tagData.meta instanceof Array) {
                 for (var _d = 0, _e = tagData.meta; _d < _e.length; _d++) {
                     var detail = _e[_d];
-                    this.createMeta(detail.attribute, detail.type, detail.content);
+                    this.createMeta(detail);
                 }
             }
             if (typeof tagData.canonical === "string") {

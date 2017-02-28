@@ -2,7 +2,7 @@ import { Injectable, Inject, Renderer, RenderComponentType, RootRenderer, ViewEn
 import { DOCUMENT } from "@angular/platform-browser";
 import { Router, NavigationEnd } from '@angular/router';
 
-import { TagData } from "./tag-data.interface";
+import { TagData, MetaData } from "./tag-data.interface";
 
 /**
 * Service that allows setting and updating of meta tags, title tags, and canonical tags.
@@ -95,18 +95,16 @@ export class NGMeta {
   * Creates HTML for a `<meta>` tag of any attribute.
   * @public
   * @method createMeta
-  * @param {String} attribute The attribute/type of tag to be generated, such as a "name" meta tag or a "property" meta tag.
-  * @param {String} type Type of tag being generated, such as "description" or "og:title".
-  * @param {String} content Content/details of the tag.
+  * @param {MetaData} metaData The attribute (like "name" or "property") type (like "description" or "og:title") and content of the tag.
   */
-  public createMeta(attribute: string, type: string, content: string): void {
+  public createMeta(metaData: MetaData): void {
     try {
-      if (typeof attribute === "string" && typeof type === "string" && typeof content === "string") {
-        this._removeTag(`[${attribute}="${type}"]`);
+      if (typeof metaData.attribute === "string" && typeof metaData.type === "string" && typeof metaData.content === "string") {
+        this._removeTag(`[${metaData.attribute}="${metaData.type}"]`);
 
         const meta = this._renderer.createElement(this._head, "meta");
-        this._renderer.setElementAttribute(meta, attribute, type);
-        this._renderer.setElementAttribute(meta, "content", content);
+        this._renderer.setElementAttribute(meta, metaData.attribute, metaData.type);
+        this._renderer.setElementAttribute(meta, "content", metaData.content);
       }
     } catch (e) { }
   }
@@ -127,19 +125,21 @@ export class NGMeta {
       // Edit meta tags with Name attribute
       if (tagData.name instanceof Array) {
         for (let detail of tagData.name) {
-          this.createMeta("description", detail.type, detail.content);
+          detail.attribute = "name";
+          this.createMeta(detail);
         }
       }
       // Edit meta tags with Property attribute
       if (tagData.property instanceof Array) {
         for (let detail of tagData.property) {
-          this.createMeta("property", detail.type, detail.content);
+          detail.attribute = "property";
+          this.createMeta(detail);
         }
       }
       // Edit meta tags with any attribute
       if (tagData.meta instanceof Array) {
         for (let detail of tagData.meta) {
-          this.createMeta(detail.attribute, detail.type, detail.content);
+          this.createMeta(detail);
         }
       }
       // Edit canonical tag
