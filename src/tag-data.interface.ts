@@ -1,7 +1,5 @@
 /**
- * An interface/data type for an the TagData interface.
- *
- * @module MetaData
+ * Interface for an the TagData interface.
  */
 export interface MetaData {
     type: string;
@@ -10,9 +8,7 @@ export interface MetaData {
 }
 
 /**
- * An interface/data type for an object that is used with the 'setHead()' function.
- *
- * @module TagData
+ * Interface for an object that is used with the 'setHead()' function.
  */
 export interface TagData {
     title?: string;

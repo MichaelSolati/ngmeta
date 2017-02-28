@@ -10,13 +10,11 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "removeComments": true,
-    "rootDir": "./",
+    "rootDir": "./src",
     "target": "es5",
     "sourceMap": false
   },
   "files": [
-    "./index.ts",
-    "./src/ngmeta.service.ts",
-    "./src/tag-data.interface.ts"
+    "./src/index.ts"
   ]
 }
