@@ -43,5 +43,8 @@
     "rxjs": "5.0.1",
     "typescript": "^2.0.6",
     "zone.js": "^0.7.7"
+  },
+  "dependencies": {
+    "@angular/router": "^3.4.7"
   }
 }
