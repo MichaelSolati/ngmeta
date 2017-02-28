@@ -8,12 +8,12 @@ A tool for updating meta-tags in an Angular application.
 * [Functions](#functions)
 * [Changes](#changes)
 
-## Getting Started <a name="getting-started"></a>
+## Getting Started
 ```
 npm install --save ngmeta
 ```
 
-## How To Use <a name="how-to-use"></a>
+## How To Use
 First you'll need to pass the `NGMeta` service as a `providers` in your `NgModule`.
 ```typescript
 import { NGMeta } from "ngmeta";
@@ -53,10 +53,10 @@ Now our head data will display
 </head>
 ```
 
-## Documentation <a name="documentation"></a>
+## Documentation
 Full documentation for the NGMeta service is [available here](https://ngmeta.michaelsolati.com).
 
-## Interfaces <a name="interfaces"></a>
+## Interfaces
 For typing you can take two of ther interfaces that `NGMeta` uses by importing them with 
 ```typescript
 import { TagData, MetaData } from "ngmeta";
@@ -79,7 +79,7 @@ interface TagData {
 }
 ```
 
-## Functions <a name="functions"></a>
+## Functions
 
 Function | Description
 -------------- |:---------------------------------
@@ -91,5 +91,5 @@ Function | Description
 `get title()` | Returns string value of current page's title, to call `let title: string = this._ngmeta.title;`.
 `set title(title: string)` | Sets `<title></title>` tag for page, to call `this._ngmeta.title = 'Google';`.
 
-## Changes <a name="changes"></a>
+## Changes
 Changes happen, check out [the changelog](https://github.com/MichaelSolati/ngmeta/blob/master/CHANGELOG.md) to see the latest changes.
