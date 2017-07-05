@@ -1,6 +1,10 @@
+# 1.2.1 (2017-07-05)
+
+* Prerendering bug fixes.
+
 # 1.2.0 (2017-07-05)
 
-* Update for support of Angular 4
+* Update for support of Angular 4.
 
 # 1.1.0 (2017-02-28)
 

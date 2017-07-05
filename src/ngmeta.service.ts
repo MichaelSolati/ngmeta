@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT, ɵgetDOM as getDOM } from '@angular/platform-browser';
+import { ɵgetDOM as getDOM } from '@angular/platform-browser';
 import { DomAdapter } from '@angular/platform-browser/src/dom/dom_adapter';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -12,15 +12,15 @@ import { TagData, MetaData } from './tag-data.interface';
 */
 @Injectable()
 export class NGMeta {
+  private _document: any;
   private _dom: DomAdapter = getDOM();
   private _scrollEnabled: boolean = true;
-
   /**
   * Initializes service. Creates faux DOM component to abstractly interact with DOM. Subscribes to route events.
   * @method constructor
   */
-  constructor(@Inject(DOCUMENT) private _document: any, private _router: Router) {
-
+  constructor(private _router: Router) {
+    this._document = document as Document;
     this._router.events.subscribe((evt: any) => {
       this._scrollToTop(evt);
     });
@@ -50,7 +50,7 @@ export class NGMeta {
   get title(): string {
     try {
       return this._dom.getTitle(this._document);
-    } catch (e) { }
+    } catch (e) { return ''; }
   }
 
   /**

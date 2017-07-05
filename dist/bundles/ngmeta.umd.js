@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
-import { ɵgetDOM as getDOM } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/router')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/platform-browser', '@angular/router'], factory) :
+	(factory((global.ng = global.ng || {}, global.ng.ngmeta = global.ng.ngmeta || {}),global.ng.core,global._angular_common,global._angular_platformBrowser,global._angular_router));
+}(this, (function (exports,_angular_core,_angular_common,_angular_platformBrowser,_angular_router) { 'use strict';
+
 /**
 * Service that allows setting and updating of meta tags, title tags, and canonical tags.
 * @class NGMeta
@@ -14,7 +17,7 @@ var NGMeta = (function () {
     function NGMeta(_router) {
         var _this = this;
         this._router = _router;
-        this._dom = getDOM();
+        this._dom = _angular_platformBrowser.ɵgetDOM();
         this._scrollEnabled = true;
         this._document = document;
         this._router.events.subscribe(function (evt) {
@@ -174,19 +177,47 @@ var NGMeta = (function () {
     * @param {Number} duration Duration in time for scroll to top of page.
     */
     NGMeta.prototype._scrollToTop = function (evt) {
-        if (!(evt instanceof NavigationEnd) || evt.url.includes('#') || !this.scrollEnabled) {
+        if (!(evt instanceof _angular_router.NavigationEnd) || evt.url.includes('#') || !this.scrollEnabled) {
             return;
         }
         this._document.body.scrollTop = 0;
     };
     return NGMeta;
 }());
-export { NGMeta };
 NGMeta.decorators = [
-    { type: Injectable },
+    { type: _angular_core.Injectable },
 ];
 /** @nocollapse */
 NGMeta.ctorParameters = function () { return [
-    { type: Router, },
+    { type: _angular_router.Router, },
 ]; };
-//# sourceMappingURL=ngmeta.service.js.map
+
+var NgMetaModule = (function () {
+    function NgMetaModule(_ngMeta) {
+        this._ngMeta = _ngMeta;
+    }
+    NgMetaModule.forRoot = function () {
+        return { ngModule: NgMetaModule };
+    };
+    return NgMetaModule;
+}());
+NgMetaModule.decorators = [
+    { type: _angular_core.NgModule, args: [{
+                imports: [
+                    _angular_common.CommonModule
+                ],
+                declarations: [],
+                providers: [NGMeta]
+            },] },
+];
+/** @nocollapse */
+NgMetaModule.ctorParameters = function () { return [
+    { type: NGMeta, },
+]; };
+
+exports.NgMetaModule = NgMetaModule;
+exports.NGMeta = NGMeta;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
