@@ -11,20 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var NGMeta = (function () {
-    function NGMeta(_document, _rootRenderer, _router) {
+    function NGMeta(_document, _router) {
         var _this = this;
         this._document = _document;
-        this._rootRenderer = _rootRenderer;
         this._router = _router;
+        this._dom = platform_browser_1.ɵgetDOM();
         this._scrollEnabled = true;
-        this._body = this._document.body;
-        this._head = this._document.head;
-        var type = new core_1.RenderComponentType("", "", 0, core_1.ViewEncapsulation.None, [], null);
-        this._renderer = _rootRenderer.renderComponent(type);
         this._router.events.subscribe(function (evt) {
             _this._scrollToTop(evt);
         });
@@ -32,10 +29,10 @@ var NGMeta = (function () {
     Object.defineProperty(NGMeta.prototype, "canonical", {
         set: function (canonicalURL) {
             try {
-                this._removeTag("[rel=\"canonical\"]");
-                var canonical = this._renderer.createElement(this._head, "link");
-                this._renderer.setElementAttribute(canonical, "rel", "canonical");
-                this._renderer.setElementAttribute(canonical, "href", canonicalURL);
+                this._removeTag('[rel=\'canonical\']');
+                var canonical = this._dom.createElement(this._document.head, 'link');
+                this._dom.setAttribute(canonical, 'rel', 'canonical');
+                this._dom.setAttribute(canonical, 'href', canonicalURL);
             }
             catch (e) { }
         },
@@ -45,13 +42,13 @@ var NGMeta = (function () {
     Object.defineProperty(NGMeta.prototype, "title", {
         get: function () {
             try {
-                return this._document.title;
+                return this._dom.getTitle(this._document);
             }
             catch (e) { }
         },
         set: function (title) {
             try {
-                this._document.title = title;
+                this._dom.setTitle(this._document, title);
             }
             catch (e) { }
         },
@@ -70,31 +67,31 @@ var NGMeta = (function () {
     });
     NGMeta.prototype.createMeta = function (metaData) {
         try {
-            if (typeof metaData.attribute === "string" && typeof metaData.type === "string" && typeof metaData.content === "string") {
-                this._removeTag("[" + metaData.attribute + "=\"" + metaData.type + "\"]");
-                var meta = this._renderer.createElement(this._head, "meta");
-                this._renderer.setElementAttribute(meta, metaData.attribute, metaData.type);
-                this._renderer.setElementAttribute(meta, "content", metaData.content);
+            if (typeof metaData.attribute === 'string' && typeof metaData.type === 'string' && typeof metaData.content === 'string') {
+                this._removeTag("[" + metaData.attribute + "='" + metaData.type + "']");
+                var meta = this._dom.createElement(this._document.head, 'meta');
+                this._dom.setAttribute(meta, metaData.attribute, metaData.type);
+                this._dom.setAttribute(meta, 'content', metaData.content);
             }
         }
         catch (e) { }
     };
     NGMeta.prototype.setHead = function (tagData) {
         try {
-            if (typeof tagData.title === "string") {
+            if (typeof tagData.title === 'string') {
                 this.title = tagData.title;
             }
             if (tagData.name instanceof Array) {
                 for (var _i = 0, _a = tagData.name; _i < _a.length; _i++) {
                     var detail = _a[_i];
-                    detail.attribute = "name";
+                    detail.attribute = 'name';
                     this.createMeta(detail);
                 }
             }
             if (tagData.property instanceof Array) {
                 for (var _b = 0, _c = tagData.property; _b < _c.length; _b++) {
                     var detail = _c[_b];
-                    detail.attribute = "property";
+                    detail.attribute = 'property';
                     this.createMeta(detail);
                 }
             }
@@ -104,7 +101,7 @@ var NGMeta = (function () {
                     this.createMeta(detail);
                 }
             }
-            if (typeof tagData.canonical === "string") {
+            if (typeof tagData.canonical === 'string') {
                 this.canonical = tagData.canonical;
             }
         }
@@ -114,23 +111,22 @@ var NGMeta = (function () {
     };
     NGMeta.prototype._removeTag = function (tagSelector) {
         try {
-            var head = this._document.head;
-            var tag = this._document.querySelector(tagSelector);
-            head.removeChild(tag);
+            var tag = this._dom.querySelector(this._document.head, tagSelector);
+            this._dom.removeChild(tag, this._document.head);
         }
         catch (e) { }
     };
     NGMeta.prototype._scrollToTop = function (evt) {
-        if (!(evt instanceof router_1.NavigationEnd) || evt.url.includes("#") || !this.scrollEnabled) {
+        if (!(evt instanceof router_1.NavigationEnd) || evt.url.includes('#') || !this.scrollEnabled) {
             return;
         }
-        this._body.scrollTop = 0;
+        this._document.body.scrollTop = 0;
     };
     return NGMeta;
 }());
 NGMeta = __decorate([
     core_1.Injectable(),
     __param(0, core_1.Inject(platform_browser_1.DOCUMENT)),
-    __metadata("design:paramtypes", [Object, core_1.RootRenderer, router_1.Router])
+    __metadata("design:paramtypes", [Object, router_1.Router])
 ], NGMeta);
 exports.NGMeta = NGMeta;

@@ -1,4 +1,4 @@
-# ngmeta (1.1.0) [![Build Status](https://travis-ci.org/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.org/MichaelSolati/ngmeta)
+# ngmeta (1.2.0) [![Build Status](https://travis-ci.org/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.org/MichaelSolati/ngmeta)
 A tool for updating meta-tags in an Angular application.
 
 * [Getting Started](#getting-started)
@@ -16,7 +16,7 @@ npm install --save ngmeta
 ## How To Use
 First you'll need to pass the `NGMeta` service as a `providers` in your `NgModule`.
 ```typescript
-import { NGMeta } from "ngmeta";
+import { NGMeta } from 'ngmeta';
 ...
 @NgModule({
   providers: [
@@ -30,7 +30,7 @@ export class AppModule { }
 ```
 To dynamically edit this data whenever a page is loaded. Import `NGMeta` into your component, then inside of your constructor pass in the `NGMeta` service as an argument...
 ```typescript
-import { NGMeta } from "ngmeta";
+import { NGMeta } from 'ngmeta';
 ...
 export class HomePage {
     constructor(private _ngmeta: NGMeta) {}
@@ -39,9 +39,9 @@ export class HomePage {
  Then in the component we can call our `NGMeta` service `this._ngmeta.setHead()`. This takes an object of the new values for the tags you want. Below we change the title and description data on a page.
 ```typescript
 this._ngmeta.setHead({
-  title: "Google",
+  title: 'Google',
   meta : [
-    {attribute: "name", type: "description", content: "Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for."}
+    {attribute: 'name', type: 'description', content: 'Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.'}
   ]
 });
 ```
@@ -49,7 +49,7 @@ Now our head data will display
 ```html
 <head>
 <title>Google</title>
-<meta name="description" content="Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.">
+<meta name='description' content='Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.'>
 </head>
 ```
 
@@ -59,7 +59,7 @@ Full documentation for the NGMeta service is [available here](https://ngmeta.mic
 ## Interfaces
 For typing you can take two of ther interfaces that `NGMeta` uses by importing them with 
 ```typescript
-import { TagData, MetaData } from "ngmeta";
+import { TagData, MetaData } from 'ngmeta';
 ```
 
 ```typescript

@@ -1,8 +1,9 @@
-import { Injectable, Inject, Renderer, RenderComponentType, RootRenderer, ViewEncapsulation } from "@angular/core";
-import { DOCUMENT } from "@angular/platform-browser";
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT, ɵgetDOM as getDOM } from '@angular/platform-browser';
+import { DomAdapter } from '@angular/platform-browser/src/dom/dom_adapter';
 import { Router, NavigationEnd } from '@angular/router';
 
-import { TagData, MetaData } from "./tag-data.interface";
+import { TagData, MetaData } from './tag-data.interface';
 
 /**
 * Service that allows setting and updating of meta tags, title tags, and canonical tags.
@@ -11,23 +12,16 @@ import { TagData, MetaData } from "./tag-data.interface";
 */
 @Injectable()
 export class NGMeta {
-  private _body: any;
-  private _head: any;
+  private _dom: DomAdapter = getDOM();
   private _scrollEnabled: boolean = true;
-  private _renderer: Renderer;
 
   /**
   * Initializes service. Creates faux DOM component to abstractly interact with DOM. Subscribes to route events.
   * @method constructor
   */
-  constructor( @Inject(DOCUMENT) private _document: any, private _rootRenderer: RootRenderer, private _router: Router) {
-    this._body = this._document.body;
-    this._head = this._document.head;
+  constructor(@Inject(DOCUMENT) private _document: any, private _router: Router) {
 
-    let type = new RenderComponentType("", "", 0, ViewEncapsulation.None, [], null);
-    this._renderer = _rootRenderer.renderComponent(type);
-
-    this._router.events.subscribe((evt) => {
+    this._router.events.subscribe((evt: any) => {
       this._scrollToTop(evt);
     });
   }
@@ -40,10 +34,10 @@ export class NGMeta {
   */
   set canonical(canonicalURL: string) {
     try {
-      this._removeTag("[rel=\"canonical\"]");
-      const canonical = this._renderer.createElement(this._head, "link");
-      this._renderer.setElementAttribute(canonical, "rel", "canonical");
-      this._renderer.setElementAttribute(canonical, "href", canonicalURL);
+      this._removeTag('[rel=\'canonical\']');
+      const canonical = this._dom.createElement(this._document.head, 'link');
+      this._dom.setAttribute(canonical, 'rel', 'canonical');
+      this._dom.setAttribute(canonical, 'href', canonicalURL);
     } catch (e) { }
   }
 
@@ -55,7 +49,7 @@ export class NGMeta {
   */
   get title(): string {
     try {
-      return this._document.title;
+      return this._dom.getTitle(this._document);
     } catch (e) { }
   }
 
@@ -67,7 +61,7 @@ export class NGMeta {
   */
   set title(title: string) {
     try {
-      this._document.title = title;
+      this._dom.setTitle(this._document, title);
     } catch (e) { }
   }
 
@@ -95,16 +89,15 @@ export class NGMeta {
   * Creates HTML for a `<meta>` tag of any attribute.
   * @public
   * @method createMeta
-  * @param {MetaData} metaData The attribute (like "name" or "property") type (like "description" or "og:title") and content of the tag.
+  * @param {MetaData} metaData The attribute (like 'name' or 'property') type (like 'description' or 'og:title') and content of the tag.
   */
   public createMeta(metaData: MetaData): void {
     try {
-      if (typeof metaData.attribute === "string" && typeof metaData.type === "string" && typeof metaData.content === "string") {
-        this._removeTag(`[${metaData.attribute}="${metaData.type}"]`);
-
-        const meta = this._renderer.createElement(this._head, "meta");
-        this._renderer.setElementAttribute(meta, metaData.attribute, metaData.type);
-        this._renderer.setElementAttribute(meta, "content", metaData.content);
+      if (typeof metaData.attribute === 'string' && typeof metaData.type === 'string' && typeof metaData.content === 'string') {
+        this._removeTag(`[${metaData.attribute}='${metaData.type}']`);
+        const meta = this._dom.createElement(this._document.head, 'meta');
+        this._dom.setAttribute(meta, metaData.attribute, metaData.type);
+        this._dom.setAttribute(meta, 'content', metaData.content);
       }
     } catch (e) { }
   }
@@ -119,20 +112,20 @@ export class NGMeta {
   public setHead(tagData: TagData): void {
     try {
       // Edit <title>
-      if (typeof tagData.title === "string") {
+      if (typeof tagData.title === 'string') {
         this.title = tagData.title;
       }
       // Edit meta tags with Name attribute
       if (tagData.name instanceof Array) {
         for (let detail of tagData.name) {
-          detail.attribute = "name";
+          detail.attribute = 'name';
           this.createMeta(detail);
         }
       }
       // Edit meta tags with Property attribute
       if (tagData.property instanceof Array) {
         for (let detail of tagData.property) {
-          detail.attribute = "property";
+          detail.attribute = 'property';
           this.createMeta(detail);
         }
       }
@@ -143,7 +136,7 @@ export class NGMeta {
         }
       }
       // Edit canonical tag
-      if (typeof tagData.canonical === "string") {
+      if (typeof tagData.canonical === 'string') {
         this.canonical = tagData.canonical;
       }
     } catch (e) {
@@ -159,9 +152,8 @@ export class NGMeta {
   */
   private _removeTag(tagSelector: string): void {
     try {
-      let head = this._document.head;
-      let tag = this._document.querySelector(tagSelector);
-      head.removeChild(tag);
+      let tag = this._dom.querySelector(this._document.head, tagSelector);
+      this._dom.removeChild(tag, this._document.head);
     } catch (e) { }
   }
 
@@ -172,9 +164,9 @@ export class NGMeta {
   * @param {Number} duration Duration in time for scroll to top of page.
   */
   private _scrollToTop(evt: any): void {
-    if (!(evt instanceof NavigationEnd) || evt.url.includes("#") || !this.scrollEnabled) {
+    if (!(evt instanceof NavigationEnd) || evt.url.includes('#') || !this.scrollEnabled) {
       return;
     }
-    this._body.scrollTop = 0;
+    this._document.body.scrollTop = 0;
   }
 }

@@ -1,3 +1,7 @@
+# 1.2.0 (2017-07-05)
+
+* Update for support of Angular 4
+
 # 1.1.0 (2017-02-28)
 
 * `setCanonical(canonicalURL: string)` function removed, replaced with setter function just called `canonical(canonicalURL: string)`. To call `this._ngmeta.canonical = 'https://www.google.com';`. 
