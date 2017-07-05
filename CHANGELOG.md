@@ -1,3 +1,7 @@
+# 1.2.2 (2017-07-05)
+
+* Further improvements to overall application stability and other minor adjustments have been made to enhance the user experience.
+
 # 1.2.1 (2017-07-05)
 
 * Prerendering bug fixes.

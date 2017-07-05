@@ -1,4 +1,4 @@
-# ngmeta (1.2.0) [![Build Status](https://travis-ci.org/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.org/MichaelSolati/ngmeta)
+# ngmeta (1.2.2) [![Build Status](https://travis-ci.org/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.org/MichaelSolati/ngmeta)
 A tool for updating meta-tags in an Angular application.
 
 * [Getting Started](#getting-started)
@@ -41,7 +41,7 @@ export class HomePage {
 this._ngmeta.setHead({
   title: 'Google',
   meta : [
-    {attribute: 'name', type: 'description', content: 'Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.'}
+    {attribute: 'name', type: 'description', content: 'Search the world\'s information, including webpages, images, videos and more. Google has many special features to help you find exactly what you\'re looking for.'}
   ]
 });
 ```

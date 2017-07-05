@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/index.ts"],"names":[],"mappings":"AAAA,cAAc,iBAAiB,CAAC;AAChC,cAAc,kBAAkB,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export * from './ngmeta.module';\nexport * from './ngmeta.service';\nexport * from './tag-data.interface';\n"]}
+{"version":3,"sources":["../src/index.ts"],"names":[],"mappings":"AAAA,cAAc,kBAAkB,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export * from './ngmeta.service';\nexport * from './tag-data.interface';\n"]}
