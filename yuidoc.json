@@ -1,7 +1,7 @@
 {
     "name": "ngmeta",
     "description": "A tool for updating meta tags in an Angular application.",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "url": "https://ngmeta.michaelsolati.com/",
     "options": {
         "outdir": "./docs",

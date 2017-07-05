@@ -1,3 +1,7 @@
+# 1.2.4 (2017-07-05)
+
+* Fix to include `dist` in bundle.
+
 # 1.2.3 (2017-07-05)
 
 * Fix for building with Angular CLI.

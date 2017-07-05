@@ -1,4 +1,4 @@
-# ngmeta (1.2.3) [![Build Status](https://travis-ci.org/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.org/MichaelSolati/ngmeta)
+# ngmeta (1.2.4) [![Build Status](https://travis-ci.org/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.org/MichaelSolati/ngmeta)
 A tool for updating meta tags in an Angular application.
 
 * [Getting Started](#getting-started)
