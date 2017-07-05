@@ -1,3 +1,7 @@
+# 1.2.3 (2017-07-05)
+
+* Fix for building with Angular CLI.
+
 # 1.2.2 (2017-07-05)
 
 * Further improvements to overall application stability and other minor adjustments have been made to enhance the user experience.

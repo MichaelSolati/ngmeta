@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/index.ts"],"names":[],"mappings":"AAAA,cAAc,kBAAkB,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export * from './ngmeta.service';\nexport * from './tag-data.interface';\n"]}

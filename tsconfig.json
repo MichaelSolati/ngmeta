@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "paths": {
       "@angular/core": ["node_modules/@angular/core"],
@@ -14,8 +14,8 @@
     },
     "rootDir": "src",
     "outDir": "dist",
-    "sourceMap": true,
-    "inlineSources": true,
+    "sourceMap": false,
+    "inlineSources": false,
     "target": "es5",
     "skipLibCheck": true,
     "lib": [
