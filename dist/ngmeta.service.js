@@ -181,14 +181,14 @@ var NGMeta = (function () {
         }
         this._document.body.scrollTop = 0;
     };
+    NGMeta.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    NGMeta.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core_1.Inject, args: [platform_browser_1.DOCUMENT,] },] },
+        { type: router_1.Router, },
+    ]; };
     return NGMeta;
 }());
-NGMeta.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-NGMeta.ctorParameters = function () { return [
-    { type: undefined, decorators: [{ type: core_1.Inject, args: [platform_browser_1.DOCUMENT,] },] },
-    { type: router_1.Router, },
-]; };
 exports.NGMeta = NGMeta;

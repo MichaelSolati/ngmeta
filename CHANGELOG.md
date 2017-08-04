@@ -1,3 +1,23 @@
+### 1.3.0 (2017-08-04)
+
+##### Build System / Dependencies
+
+* **ngc:** use ngc for build ([9f8cc52e](https://github.com/MichaelSolati/ngmeta/commit/9f8cc52ee65c9da65247f90e12243a7b995ff14b))
+
+##### Chores
+
+* **version:** upgrade for support of Angular 4 ([f01feb73](https://github.com/MichaelSolati/ngmeta/commit/f01feb73c9d5678cdbfeb83ec85c804d45df3e5c))
+
+##### Bug Fixes
+
+* **build:**
+  * include dist in bundle ([80502110](https://github.com/MichaelSolati/ngmeta/commit/805021102259d9159d83bd824be98b47d5f1b05f))
+  * fix compile for angular cli ([e8b78d39](https://github.com/MichaelSolati/ngmeta/commit/e8b78d3913160a0390fa3e5b6627ecdf71d137a7))
+
+##### Refactors
+
+* **module:** remove module ([5c3f5c99](https://github.com/MichaelSolati/ngmeta/commit/5c3f5c99ed573918ac3829b14bccaf14e631c435))
+
 # 1.2.4 (2017-07-05)
 
 * Fix to include `dist` in bundle.
