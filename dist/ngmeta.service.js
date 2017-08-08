@@ -33,9 +33,10 @@ var NGMeta = (function () {
         set: function (canonicalURL) {
             try {
                 this._removeTag('[rel=\'canonical\']');
-                var canonical = this._dom.createElement(this._document.head, 'link');
+                var canonical = this._dom.createElement('link');
                 this._dom.setAttribute(canonical, 'rel', 'canonical');
                 this._dom.setAttribute(canonical, 'href', canonicalURL);
+                this._dom.appendChild(this._document.head, canonical);
             }
             catch (e) { }
         },
@@ -104,12 +105,15 @@ var NGMeta = (function () {
         try {
             if (typeof metaData.attribute === 'string' && typeof metaData.type === 'string' && typeof metaData.content === 'string') {
                 this._removeTag("[" + metaData.attribute + "='" + metaData.type + "']");
-                var meta = this._dom.createElement(this._document.head, 'meta');
+                var meta = this._dom.createElement('meta');
                 this._dom.setAttribute(meta, metaData.attribute, metaData.type);
                 this._dom.setAttribute(meta, 'content', metaData.content);
+                this._dom.appendChild(this._document.head, meta);
             }
         }
-        catch (e) { }
+        catch (e) {
+            console.log(e);
+        }
     };
     /**
     * Set function setting all `<head></head>` metadata.
@@ -165,7 +169,7 @@ var NGMeta = (function () {
     NGMeta.prototype._removeTag = function (tagSelector) {
         try {
             var tag = this._dom.querySelector(this._document.head, tagSelector);
-            this._dom.removeChild(tag, this._document.head);
+            this._dom.remove(tag);
         }
         catch (e) { }
     };

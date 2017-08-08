@@ -1,3 +1,9 @@
+#### 1.3.1 (2017-08-08)
+
+##### Bug Fixes
+
+* **metadata:** fix setting of meta and other tags ([8dc85585](https://github.com/MichaelSolati/ngmeta/commit/8dc85585001c6c98bdb6b6fc8b52e365cf537989))
+
 ### 1.3.0 (2017-08-04)
 
 ##### Build System / Dependencies
