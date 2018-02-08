@@ -1,3 +1,9 @@
+## 5.0.0 (2018-02-08)
+
+##### Chores
+
+*  update for angular 5 ([6a616ee0](https://github.com/MichaelSolati/ngmeta/commit/6a616ee0701e3bc3d366f91adf56c89f82cbe55c))
+
 #### 1.3.1 (2017-08-08)
 
 ##### Bug Fixes
