@@ -1,33 +1,29 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT, ɵgetDOM as getDOM } from '@angular/platform-browser';
 import { DomAdapter } from '@angular/platform-browser/src/dom/dom_adapter';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 
 import { TagData, MetaData } from './tag-data.interface';
 
 /**
 * Service that allows setting and updating of meta tags, title tags, and canonical tags.
-* @class NGMeta
-* @constructor
 */
 @Injectable()
-export class NGMeta {
+export class NgMetaService {
   private _dom: DomAdapter = getDOM();
-  private _scrollEnabled: boolean = true;
+  private _scroll = true;
+
   /**
   * Initializes service. Creates faux DOM component to abstractly interact with DOM. Subscribes to route events.
-  * @method constructor
   */
-  constructor( @Inject(DOCUMENT) private _document: any, private _router: Router) {
-    this._router.events.subscribe((evt: any) => {
+  constructor(@Inject(DOCUMENT) private _document: any, private _router: Router) {
+    this._router.events.subscribe((evt: RouterEvent) => {
       this._scrollToTop(evt);
     });
   }
 
   /**
   * Sets canonical tag for page, to call `this._ngmeta.canonical = 'https://www.google.com';`.
-  * @public
-  * @method canonical
   * @param {string} canonicalURL Canonical URL for the page.
   */
   set canonical(canonicalURL: string) {
@@ -42,8 +38,6 @@ export class NGMeta {
 
   /**
   * Returns string value of current page's title, to call `let title: string = this._ngmeta.title;`.
-  * @public
-  * @method title
   * @return {string} Current page's title.
   */
   get title(): string {
@@ -54,9 +48,7 @@ export class NGMeta {
 
   /**
   * Sets `<title></title>` tag for page, to call `this._ngmeta.title = 'Google';`.
-  * @public
-  * @method title
-  * @param {string} title Title value for the page.
+  * @param title Title value for the page.
   */
   set title(title: string) {
     try {
@@ -65,30 +57,24 @@ export class NGMeta {
   }
 
   /**
-  * Returns boolean value if scroll to top is enabled, to call `let scrollEnabled: boolean = this._ngmeta.scrollEnabled;`.
-  * @public
-  * @method scrollEnabled
-  * @return {boolean} If scroll to top is enabled.
+  * Returns boolean value if scroll to top is enabled, to call `let scroll: boolean = this._ngmeta.scroll;`.
+  * @returns If scroll to top is enabled.
   */
-  get scrollEnabled(): boolean {
-    return this._scrollEnabled;
+  get scroll(): boolean {
+    return this._scroll;
   }
 
   /**
-  * Sets wether `<body></body>` should scroll to top on route change, to call `this._ngmeta.scrollEnabled = true;`.
-  * @public
-  * @method scrollEnabled
-  * @param {Boolean} scroll If `<body></body>` should scroll.
+  * Sets wether `<body></body>` should scroll to top on route change, to call `this._ngmeta.scroll = true;`.
+  * @param scroll If `<body></body>` should scroll.
   */
-  set scrollEnabled(scroll: boolean) {
-    this._scrollEnabled = scroll;
+  set scroll(scroll: boolean) {
+    this._scroll = scroll;
   }
 
   /**
   * Creates HTML for a `<meta>` tag of any attribute.
-  * @public
-  * @method createMeta
-  * @param {MetaData} metaData The attribute (like 'name' or 'property') type (like 'description' or 'og:title') and content of the tag.
+  * @param metaData The attribute (like 'name' or 'property') type (like 'description' or 'og:title') and content of the tag.
   */
   public createMeta(metaData: MetaData): void {
     try {
@@ -99,17 +85,12 @@ export class NGMeta {
         this._dom.setAttribute(meta, 'content', metaData.content);
         this._dom.appendChild(this._document.head, meta);
       }
-    } catch (e) {
-      console.log(e)
-    }
+    } catch (e) { }
   }
 
   /**
   * Set function setting all `<head></head>` metadata.
-  * @public
-  * @method setHead
-  * @param {TagData} tagData An object of the new values for the tags an user wants.
-  * @throws {Error} An error.
+  * @param tagData An object of the new values for the tags an user wants.
   */
   public setHead(tagData: TagData): void {
     try {
@@ -141,16 +122,12 @@ export class NGMeta {
       if (typeof tagData.canonical === 'string') {
         this.canonical = tagData.canonical;
       }
-    } catch (e) {
-      throw e;
-    }
+    } catch (e) { }
   }
 
   /**
   * Removes HTML from `<head></head>` for a tag.
-  * @private
-  * @method _removeTag
-  * @param {String} tagSelector Selector detail for tag to remove.
+  * @param tagSelector Selector detail for tag to remove.
   */
   private _removeTag(tagSelector: string): void {
     try {
@@ -161,14 +138,10 @@ export class NGMeta {
 
   /**
   * Scrolls web page to top of `<body></body>`.
-  * @private
-  * @method _scrollToTop
-  * @param {Number} duration Duration in time for scroll to top of page.
   */
-  private _scrollToTop(evt: any): void {
-    if (!(evt instanceof NavigationEnd) || evt.url.includes('#') || !this.scrollEnabled) {
-      return;
+  private _scrollToTop(evt: RouterEvent): void {
+    if ((evt instanceof NavigationEnd) && !evt.url.includes('#') && this.scroll) {
+      this._document.body.scrollTop = 0;
     }
-    this._document.body.scrollTop = 0;
   }
 }
