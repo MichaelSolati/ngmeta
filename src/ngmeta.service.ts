@@ -140,8 +140,8 @@ export class NgMetaService {
   * Scrolls web page to top of `<body></body>`.
   */
   private _scrollToTop(evt: RouterEvent): void {
-    if ((evt instanceof NavigationEnd) && !evt.url.includes('#') && this.scroll) {
-      this._document.body.scrollTop = 0;
+    if ((typeof window !== 'undefined') && (evt instanceof NavigationEnd) && !evt.url.includes('#')) {
+      window.scrollTo(0, 0);
     }
   }
 }

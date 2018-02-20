@@ -1,5 +1,6 @@
 /dist
 /docs
 /node_modules
-npm-debug.log
+*.log
 .tscache
+.DS_STORE
