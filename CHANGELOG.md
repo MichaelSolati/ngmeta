@@ -1,3 +1,9 @@
+#### 5.0.1 (2018-02-20)
+
+##### Bug Fixes
+
+* **scroll:**  scroll window instead of body ([4c3f3664](https://github.com/MichaelSolati/ngmeta/commit/4c3f3664903a68f0cbde9c4def8985f7e269a15b))
+
 ## 5.0.0 (2018-02-08)
 
 ##### Chores
