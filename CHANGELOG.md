@@ -1,3 +1,9 @@
+#### 5.0.2 (2018-04-15)
+
+##### Chores
+
+*  include README in dist ([d660b82c](https://github.com/MichaelSolati/ngmeta/commit/d660b82c20419853f78550366e98615d3aa72e79))
+
 #### 5.0.1 (2018-02-20)
 
 ##### Bug Fixes
