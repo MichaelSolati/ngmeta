@@ -5,12 +5,13 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "ngc tsconfig.json && cp package.json dist/package.json && cp README.md dist/README.md",
+    "build": "ngc tsconfig.json",
     "docs": "typedoc --module node --target es5 --out docs/ --exclude **/*.spec.ts src/",
     "start": "npm run build",
     "release:major": "changelog -M && git add . && git commit -m 'chore(release): major version release' && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add . && git commit -m 'chore(release): minor version release' && npm version minor && git push origin && git push origin --tags",
-    "release:patch": "changelog -p && git add . && git commit -m 'chore(release): patch version release' && npm version patch && git push origin && git push origin --tags"
+    "release:patch": "changelog -p && git add . && git commit -m 'chore(release): patch version release' && npm version patch && git push origin && git push origin --tags",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -30,22 +31,25 @@
   },
   "homepage": "https://ngmeta.michaelsolati.com/",
   "readme": "README.md",
+  "files": [
+    "dist/**",
+    "CHANGELOG.md",
+    "package-lock.json",
+    "package.json",
+    "README.md"
+  ],
   "dependencies": {
-    "@angular/router": "^5.0.0"
-  },
-  "peerDependencies": {
-    "@angular/core": "^5.0.0"
+    "@angular/common": "6.x.x",
+    "@angular/core": "6.x.x",
+    "@angular/platform-browser": "6.x.x",
+    "@angular/router": "6.x.x",
+    "rxjs": "6.x.x"
   },
   "devDependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/compiler-cli": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "generate-changelog": "^1.7.0",
-    "rxjs": "^5.5.6",
+    "@angular/compiler": "6.x.x",
+    "@angular/compiler-cli": "6.x.x",
+    "generate-changelog": "^1.7.1",
     "typedoc": "^0.10.0",
-    "typescript": "^2.7.0",
-    "zone.js": "^0.8.14"
+    "typescript": "^2.7.2"
   }
 }

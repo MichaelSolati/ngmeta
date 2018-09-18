@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { NgMetaService } from './ngmeta.service'
 
@@ -8,7 +7,6 @@ import { NgMetaService } from './ngmeta.service'
   providers: [NgMetaService],
   declarations: []
 })
-// @ts-ignore
 export class NgMetaModule {
   constructor(private _ngmeta: NgMetaService) { }
 
