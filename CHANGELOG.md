@@ -1,3 +1,9 @@
+## 6.0.0 (2018-10-10)
+
+##### Chores
+
+*  update dependencies for Angular 6 ([7b536a44](https://github.com/MichaelSolati/ngmeta/commit/7b536a446a96709b1f2c2bac1095728b6bd34abe))
+
 #### 5.0.2 (2018-04-15)
 
 ##### Chores
