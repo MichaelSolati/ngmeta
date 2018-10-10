@@ -1,18 +1,15 @@
 language: node_js
-sudo: true
 node_js:
   - 8
-branches:
-  only:
-    - master
+sudo: required
 install:
   - npm install
 script:
   - npm run build
-before_deploy:
-  - cd ./dist
 deploy:
   provider: npm
   email: $EMAIL_ADDRESS
   api_key: $NPM_API
   skip_cleanup: true
+  on:
+    tags: true
