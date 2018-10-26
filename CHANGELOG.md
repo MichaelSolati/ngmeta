@@ -1,3 +1,9 @@
+## 7.0.0 (2018-10-26)
+
+##### Chores
+
+*  update for Angular 7.x.x ([8fa7ff13](https://github.com/MichaelSolati/ngmeta/commit/8fa7ff13c0b8a52a64df5e9048ef0c57abcf7777))
+
 #### 6.0.1 (2018-10-10)
 
 ## 6.0.0 (2018-10-10)
