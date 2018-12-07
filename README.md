@@ -14,13 +14,13 @@ npm install --save ngmeta
 ```
 
 ## How To Use
-First import the `NGMetaModule` into your app.
+First import the `NgMetaModule` into your app.
 ```typescript
-import { NGMetaModule } from 'ngmeta';
+import { NgMetaModule } from 'ngmeta';
 ...
 @NgModule({
   imports: [
-    NGMetaModule.forRoot()
+    NgMetaModule.forRoot()
   ],
   bootstrap: [
     AppComponent
