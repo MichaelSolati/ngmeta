@@ -14,13 +14,13 @@ npm install --save ngmeta
 ```
 
 ## How To Use
-First import the `NGMetaModule` into your app.
+First import the `NgMetaModule` into your app.
 ```typescript
-import { NGMetaModule } from 'ngmeta';
+import { NgMetaModule } from 'ngmeta';
 ...
 @NgModule({
   imports: [
-    NGMetaModule.forRoot()
+    NgMetaModule.forRoot()
   ],
   bootstrap: [
     AppComponent
@@ -33,7 +33,7 @@ To dynamically edit this data whenever a page is loaded. Import `NgMetaService` 
 import { NgMetaService } from 'ngmeta';
 ...
 export class HomePage {
-    constructor(private _ngmeta: NGMeta) {}
+    constructor(private _ngmeta: NgMetaService) {}
 }
 ```
  Then in the component we can call our `NgMetaService` service `this._ngmeta.setHead()`. This takes an object of the new values for the tags you want. Below we change the title and description data on a page.
