@@ -43,7 +43,7 @@
     "@angular/core": "7.x.x",
     "@angular/platform-browser": "7.x.x",
     "@angular/router": "7.x.x",
-    "rxjs": "6.3.x"
+    "rxjs": "6.5.x"
   },
   "devDependencies": {
     "@angular/compiler": "7.x.x",
