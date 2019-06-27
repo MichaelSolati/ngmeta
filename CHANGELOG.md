@@ -1,3 +1,17 @@
+## 8.0.0 (2019-06-27)
+
+##### Chores
+
+*  update dependencies ([10005664](https://github.com/MichaelSolati/ngmeta/commit/100056649a9485a8b5cf266bb30f47542f2f3d30))
+
+##### Documentation Changes
+
+* **README.md:**  update readme with better code examples ([810f60a5](https://github.com/MichaelSolati/ngmeta/commit/810f60a5308c228c3d6746caca7ec1b3572768d1))
+
+##### Refactors
+
+*  change interfaces to types ([fd206528](https://github.com/MichaelSolati/ngmeta/commit/fd20652873395126ab685766633444821e6bfe80))
+
 ## 7.0.0 (2018-10-26)
 
 ##### Chores
