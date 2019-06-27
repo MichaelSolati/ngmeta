@@ -3,7 +3,7 @@ import { Injectable, Inject } from '@angular/core';
 import { ɵgetDOM, ɵDomAdapter } from '@angular/platform-browser';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 
-import { TagData, MetaData } from './tag-data.interface';
+import { TagData, MetaData } from './ngmeta.types';
 
 /**
 * Service that allows setting and updating of meta tags, title tags, and canonical tags.

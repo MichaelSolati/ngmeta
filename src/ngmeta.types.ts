@@ -1,7 +1,7 @@
 /**
  * Interface for an the TagData interface.
  */
-export interface MetaData {
+export type MetaData = {
     type: string;
     content: string;
     attribute?: string;
@@ -10,7 +10,7 @@ export interface MetaData {
 /**
  * Interface for an object that is used with the 'setHead()' function.
  */
-export interface TagData {
+export type TagData = {
     title?: string;
     name?: MetaData[];
     property?: MetaData[];
