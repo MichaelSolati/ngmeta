@@ -1,6 +1,6 @@
+import { DOCUMENT } from '@angular/common';
 import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT, ɵgetDOM as getDOM } from '@angular/platform-browser';
-import { DomAdapter } from '@angular/platform-browser/src/dom/dom_adapter';
+import { ɵgetDOM, ɵDomAdapter } from '@angular/platform-browser';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 
 import { TagData, MetaData } from './tag-data.interface';
@@ -10,7 +10,7 @@ import { TagData, MetaData } from './tag-data.interface';
 */
 @Injectable()
 export class NgMetaService {
-  private _dom: DomAdapter = getDOM();
+  private _dom: ɵDomAdapter = ɵgetDOM();
   private _scroll = true;
 
   /**
