@@ -1,4 +1,6 @@
-# ngmeta [![Build Status](https://travis-ci.org/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.org/MichaelSolati/ngmeta)
+# ngmeta
+
+[![npm version](https://badge.fury.io/js/ngmeta.svg)](https://badge.fury.io/js/ngmeta) [![Build Status](https://travis-ci.com/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.com/MichaelSolati/ngmeta)
 
 A tool for updating meta tags in an Angular application.
 
@@ -58,9 +60,12 @@ Now our head data will display
 ```html
 <head>
   <title>Google</title>
-  <meta name='description' content='Search the world's information, including
+  <meta
+    name="description"
+    content="Search the world's information, including
   webpages, images, videos and more. Google has many special features to help
-  you find exactly what you're looking for.'>
+  you find exactly what you're looking for."
+  />
 </head>
 ```
 
