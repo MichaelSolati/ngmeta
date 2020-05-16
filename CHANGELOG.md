@@ -1,3 +1,13 @@
+## 9.0.0 (2020-05-16)
+
+##### Chores
+
+*  update dependencies ([e84a5304](https://github.com/MichaelSolati/ngmeta/commit/e84a530400830438c622759d379a3af20e77808f))
+
+##### Refactors
+
+*  rewrite library and update for angular 9 ([c392efbe](https://github.com/MichaelSolati/ngmeta/commit/c392efbeca56aeb3b97734ea40f02161540ef43d))
+
 ## 8.0.0 (2019-06-27)
 
 ##### Chores
