@@ -1,3 +1,9 @@
+#### 9.0.1 (2020-05-16)
+
+##### Bug Fixes
+
+*  fix docs site ([ef4779a8](https://github.com/MichaelSolati/ngmeta/commit/ef4779a8f928c56894fdc5debac27f793ee72dd0))
+
 ## 9.0.0 (2020-05-16)
 
 ##### Chores
