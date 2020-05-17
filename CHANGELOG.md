@@ -1,3 +1,9 @@
+### 9.1.0 (2020-05-17)
+
+##### Refactors
+
+*  remove module ([37c03fa9](https://github.com/MichaelSolati/ngmeta/commit/37c03fa9475f4d696af5d89197ecf2a49f4d051a))
+
 #### 9.0.2 (2020-05-17)
 
 ##### Build System / Dependencies
