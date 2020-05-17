@@ -1,3 +1,9 @@
+#### 9.0.2 (2020-05-17)
+
+##### Build System / Dependencies
+
+*  move to rollup ([92890b33](https://github.com/MichaelSolati/ngmeta/commit/92890b3324faf6878f209f3baff059902f731ecc))
+
 #### 9.0.1 (2020-05-16)
 
 ##### Bug Fixes
