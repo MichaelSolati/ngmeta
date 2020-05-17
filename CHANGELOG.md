@@ -1,3 +1,9 @@
+### 9.2.0 (2020-05-17)
+
+##### Build System / Dependencies
+
+*  remove rollup ([59b3223f](https://github.com/MichaelSolati/ngmeta/commit/59b3223f774cc5648034f5356022648f81bed6ce))
+
 ### 9.1.0 (2020-05-17)
 
 ##### Refactors
