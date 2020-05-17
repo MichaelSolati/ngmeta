@@ -1,6 +1,6 @@
 {
   "name": "ngmeta",
-  "version": "9.0.2",
+  "version": "9.1.0",
   "description": "A tool for updating meta tags in an Angular application.",
   "scripts": {
     "build": "rm -rf ./dist && rollup -c",
