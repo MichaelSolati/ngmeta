@@ -8,7 +8,7 @@ import { AllMeta, FacebookMeta, GoogleMeta, TwitterMeta } from './ngmeta.types';
 * Service that allows setting and updating of meta tags, title tags, and canonical tags.
 */
 @Injectable()
-export class NgMetaService {
+export class NgMeta {
   private _scroll = false;
 
   constructor(

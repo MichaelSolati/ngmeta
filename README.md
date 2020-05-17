@@ -19,14 +19,14 @@ npm install --save ngmeta
 
 ## How To Use
 
-First import the `NgMetaModule` into your app.
+First import the `NgMeta` as a `provider` into your app.
 
 ```typescript
-import { NgMetaModule } from 'ngmeta';
+import { NgMeta } from 'ngmeta';
 ...
 @NgModule({
-  imports: [
-    NgMetaModule.forRoot()
+  providers: [
+    NgMeta
   ],
   bootstrap: [
     AppComponent
@@ -35,20 +35,20 @@ import { NgMetaModule } from 'ngmeta';
 export class AppModule { }
 ```
 
-To dynamically edit this data whenever a page is loaded. Import `NgMetaService` into your component, then inside of your constructor pass in the `NgMetaService` service as an argument...
+To dynamically edit this data whenever a page is loaded. Import `NgMeta` into your component, then inside of your constructor pass in the `NgMeta` service as an argument.
 
 ```typescript
-import { NgMetaService } from 'ngmeta';
+import { NgMeta } from 'ngmeta';
 ...
-export class HomePage {
-    constructor(private _ngmeta: NgMetaService) {}
+export class AppComponent {
+    constructor(private ngmeta: NgMeta) {}
 }
 ```
 
-Then in the component we can call our `NgMetaService` service `this._ngmeta.setHead()`. This takes an object of the new values for the tags you want. Below we change the title and description data on a page.
+Then in the component we can call our `NgMeta` service `this.ngmeta.setHead()`. This takes an object of the new values for the tags you want. Below we change the title and description data on a page.
 
 ```typescript
-this._ngmeta.setAll({
+this.ngmeta.setAll({
   title: "Google",
   description:
     "Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.",
