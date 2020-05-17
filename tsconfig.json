@@ -1,16 +1,23 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "declaration": true,
+    "stripInternal": true,
     "experimentalDecorators": true,
-    "outDir": "./dist",
-    "moduleResolution": "node",
     "strictNullChecks": false,
-    "strictPropertyInitialization": false,
+    "noImplicitAny": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "paths": {
+      "@angular/core": ["node_modules/@angular/core"],
+      "rxjs/*": ["node_modules/rxjs/*"]
+    },
+    "rootDir": "src",
+    "outDir": "dist",
+    "sourceMap": true,
+    "inlineSources": true,
     "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "skipLibCheck": true,
     "lib": [
       "es2016",
       "dom"
@@ -18,5 +25,8 @@
   },
   "files": [
     "./src/index.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true
+  }
 }

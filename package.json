@@ -3,7 +3,7 @@
   "version": "9.1.0",
   "description": "A tool for updating meta tags in an Angular application.",
   "scripts": {
-    "build": "rm -rf ./dist && rollup -c",
+    "build": "rm -rf ./dist && ngc",
     "docs": "typedoc --out docs/ --exclude **/*.spec.ts src/",
     "start": "npm run build",
     "release:major": "changelog -M && git add . && git commit -m 'chore(release): major version release' && npm version major && git push origin && git push origin --tags",
@@ -11,8 +11,7 @@
     "release:patch": "changelog -p && git add . && git commit -m 'chore(release): patch version release' && npm version patch && git push origin && git push origin --tags",
     "prepare": "npm run build"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Michael Solati <mkslt04@gmail.com>",
   "homepage": "https://ngmeta.michaelsolati.com/",
@@ -47,13 +46,11 @@
   },
   "devDependencies": {
     "@angular/common": "9.x.x",
+    "@angular/compiler": "9.x.x",
+    "@angular/compiler-cli": "9.x.x",
     "@angular/core": "9.x.x",
     "@angular/platform-browser": "9.x.x",
     "generate-changelog": "1.x.x",
-    "gts": "^2.0.2",
-    "rollup": "^2.10.2",
-    "rollup-plugin-copier": "^1.1.0",
-    "rollup-plugin-typescript2": "^0.27.1",
     "rxjs": "6.x.x",
     "typedoc": "0.x.x",
     "typescript": "3.8.3"
