@@ -14,7 +14,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Michael Solati <mkslt04@gmail.com>",
-  "homepage": "https://ngmeta.michaelsolati.com/",
+  "homepage": "https://ngmeta.otta.dev/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MichaelSolati/ngmeta.git"
@@ -39,20 +39,20 @@
     "README.md"
   ],
   "peerDependencies": {
-    "@angular/common": "9.x.x",
-    "@angular/core": "9.x.x",
-    "@angular/platform-browser": "9.x.x",
-    "rxjs": "6.x.x"
+    "@angular/common": "~10.0.0",
+    "@angular/core": "~10.0.0",
+    "@angular/platform-browser": "~10.0.0",
+    "rxjs": "~6.5.5"
   },
   "devDependencies": {
-    "@angular/common": "9.x.x",
-    "@angular/compiler": "9.x.x",
-    "@angular/compiler-cli": "9.x.x",
-    "@angular/core": "9.x.x",
-    "@angular/platform-browser": "9.x.x",
-    "generate-changelog": "1.x.x",
-    "rxjs": "6.x.x",
-    "typedoc": "0.x.x",
-    "typescript": "3.8.3"
+    "@angular/common": "~10.0.0",
+    "@angular/compiler": "~10.0.0",
+    "@angular/compiler-cli": "~10.0.0",
+    "@angular/core": "~10.0.0",
+    "@angular/platform-browser": "~10.0.0",
+    "generate-changelog": "~1.8.0",
+    "rxjs": "~6.5.5",
+    "typedoc": "~0.17.8",
+    "typescript": "~3.9.5"
   }
 }
