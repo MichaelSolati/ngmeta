@@ -154,7 +154,7 @@ export class NgMeta {
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: image },
-      { name: 'twitter:image:alt', content: (image && alt) || title },
+      { name: 'twitter:image:alt', content: ((image && alt) || (image && title)) },
       { name: 'twitter:site', content: site }
     ];
 
