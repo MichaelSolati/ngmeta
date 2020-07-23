@@ -1,6 +1,11 @@
 # ngmeta
 
-[![npm version](https://badge.fury.io/js/ngmeta.svg)](https://badge.fury.io/js/ngmeta) [![Build Status](https://travis-ci.com/MichaelSolati/ngmeta.svg?branch=master)](https://travis-ci.com/MichaelSolati/ngmeta)
+[![npm](https://img.shields.io/npm/v/ngmeta)](https://www.npmjs.com/package/ngmeta)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/ngmeta)](https://bundlephobia.com/result?p=ngmeta)
+[![Release CI](https://github.com/MichaelSolati/ngmeta/workflows/Release%20CI/badge.svg)](https://github.com/MichaelSolati/ngmeta/actions?query=workflow%3A%22Release+CI%22)
+[![David](https://img.shields.io/david/michaelsolati/ngmeta)](https://david-dm.org/michaelsolati/ngmeta)
+[![GitHub stars](https://img.shields.io/github/stars/MichaelSolati/ngmeta)](https://github.com/MichaelSolati/ngmeta/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/MichaelSolati/ngmeta)](https://github.com/MichaelSolati/ngmeta/network/members)
 
 A tool for updating meta tags in an Angular application.
 
@@ -13,7 +18,7 @@ A tool for updating meta tags in an Angular application.
 
 ## Getting Started
 
-```
+```bash
 npm install --save ngmeta
 ```
 
@@ -21,7 +26,7 @@ npm install --save ngmeta
 
 First import the `NgMeta` as a `provider` into your app.
 
-```typescript
+```TypeScript
 import { NgMeta } from 'ngmeta';
 ...
 @NgModule({
@@ -37,7 +42,7 @@ export class AppModule { }
 
 To dynamically edit this data whenever a page is loaded. Import `NgMeta` into your component, then inside of your constructor pass in the `NgMeta` service as an argument.
 
-```typescript
+```TypeScript
 import { NgMeta } from 'ngmeta';
 ...
 export class AppComponent {
@@ -47,7 +52,7 @@ export class AppComponent {
 
 Then in the component we can call our `NgMeta` service `this.ngmeta.setHead()`. This takes an object of the new values for the tags you want. Below we change the title and description data on a page.
 
-```typescript
+```TypeScript
 this.ngmeta.setAll({
   title: "Google",
   description:
@@ -57,7 +62,7 @@ this.ngmeta.setAll({
 
 Now our head data will display
 
-```html
+```HTML
 <head>
   <title>Google</title>
   <meta
@@ -71,7 +76,7 @@ Now our head data will display
 
 ## Documentation
 
-Full documentation for the NGMeta service is [available here](https://ngmeta.michaelsolati.com).
+Full documentation for the NGMeta service is [available here](https://ngmeta.otta.dev).
 
 ## Changes
 
