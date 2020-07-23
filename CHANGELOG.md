@@ -1,3 +1,22 @@
+## 10.0.0 (2020-07-23)
+
+##### Build System / Dependencies
+
+*  move to GitHub Actions for CI ([e0ed10b9](https://github.com/MichaelSolati/ngmeta/commit/e0ed10b9493524fff08465ded43f39f7476d4a8e))
+
+##### Chores
+
+*  update dependencies ([5a448b71](https://github.com/MichaelSolati/ngmeta/commit/5a448b71b145745fd6a0133b9c826c1984fc3b60))
+*  update dependencies ([5ecbb6ce](https://github.com/MichaelSolati/ngmeta/commit/5ecbb6ce97dfdbde9b17ff5acae9d83d76fc6e59))
+
+##### Documentation Changes
+
+* **README:**  update badges and link to docs ([792157b0](https://github.com/MichaelSolati/ngmeta/commit/792157b097a8b8bb5d830ee5341042fad41a2d59))
+
+##### Bug Fixes
+
+* **setTwitter:**  make sure `image` exists in order to set image alt ([9bb4a7c0](https://github.com/MichaelSolati/ngmeta/commit/9bb4a7c0dd0714caff7bfc262830759417b011e3))
+
 ### 9.2.0 (2020-05-17)
 
 ##### Build System / Dependencies
