@@ -18,6 +18,15 @@ export class NgMeta {
   ) { }
 
   /**
+   * Returns native Angular service for managing HTML `<meta>` tags.
+   * 
+   * @return Native Angular service for managing HTML `<meta>` tags.
+   */
+  get meta(): Meta {
+    return this._meta;
+  }
+
+  /**
    * Sets all meta details for page.
    * @param param0 
    */
