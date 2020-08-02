@@ -1,3 +1,15 @@
+### 10.1.0 (2020-08-02)
+
+##### New Features
+
+*  update methods to return instance of service ([18dc7a1c](https://github.com/MichaelSolati/ngmeta/commit/18dc7a1cb1541e3f9be35b79a893c7a8f0c6c6ac))
+*  make `scrollToTop` method public ([cd678c07](https://github.com/MichaelSolati/ngmeta/commit/cd678c077dc55044340edd4b8dcff3ff8e4b2cb4))
+*  expose native Angular meta service ([24a9fc72](https://github.com/MichaelSolati/ngmeta/commit/24a9fc72c5a63d3bd7c936ee305529fe64f77708))
+
+##### Refactors
+
+*  rename constructor arguments ([c75b4fdd](https://github.com/MichaelSolati/ngmeta/commit/c75b4fdde8a0d83a97345b21f87a6d4afa529e26))
+
 ## 10.0.0 (2020-07-23)
 
 ##### Build System / Dependencies
