@@ -14,7 +14,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Michael Solati <mkslt04@gmail.com>",
-  "homepage": "https://ngmeta.otta.dev/",
+  "homepage": "https://ngmeta.otta.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MichaelSolati/ngmeta.git"

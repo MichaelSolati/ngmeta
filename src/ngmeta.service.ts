@@ -12,8 +12,8 @@ export class NgMeta {
   private _scroll = false;
 
   constructor(
-    private _titleService: Title,
-    private _metaService: Meta,
+    private _title: Title,
+    private _meta: Meta,
     @Inject(DOCUMENT) private _dom: any
   ) { }
 
@@ -61,11 +61,11 @@ export class NgMeta {
    */
   setDescription(description: string): void {
     const name = 'description';
-    const elements = this._metaService.getTags(`name="${name}"`);
+    const elements = this._meta.getTags(`name="${name}"`);
     if (elements.length) {
-      this._metaService.updateTag({ name: 'description', content: description }, `name="${name}"`);
+      this._meta.updateTag({ name: 'description', content: description }, `name="${name}"`);
     } else {
-      this._metaService.addTag({ name: 'description', content: description });
+      this._meta.addTag({ name: 'description', content: description });
     }
   }
 
@@ -89,11 +89,11 @@ export class NgMeta {
 
     fields.forEach((field) => {
       if (field.content) {
-        const elements = this._metaService.getTags(`property="${field.property}"`);
+        const elements = this._meta.getTags(`property="${field.property}"`);
         if (elements.length) {
-          this._metaService.updateTag({ property: field.property, content: field.content }, `property="${field.property}"`);
+          this._meta.updateTag({ property: field.property, content: field.content }, `property="${field.property}"`);
         } else {
-          this._metaService.updateTag({ property: field.property, content: field.content });
+          this._meta.updateTag({ property: field.property, content: field.content });
         }
       }
     });
@@ -115,11 +115,11 @@ export class NgMeta {
 
     fields.forEach((field) => {
       if (field.content) {
-        const elements = this._metaService.getTags(`itemprop="${field.itemprop}"`);
+        const elements = this._meta.getTags(`itemprop="${field.itemprop}"`);
         if (elements.length) {
-          this._metaService.updateTag({ itemprop: field.itemprop, content: field.content }, `itemprop="${field.itemprop}"`);
+          this._meta.updateTag({ itemprop: field.itemprop, content: field.content }, `itemprop="${field.itemprop}"`);
         } else {
-          this._metaService.updateTag({ itemprop: field.itemprop, content: field.content });
+          this._meta.updateTag({ itemprop: field.itemprop, content: field.content });
         }
       }
     });
@@ -138,7 +138,7 @@ export class NgMeta {
    * @param title Document's title.
    */
   setTitle(title: string): void {
-    this._titleService.setTitle(title);
+    this._title.setTitle(title);
   }
 
   /**
@@ -160,11 +160,11 @@ export class NgMeta {
 
     fields.forEach((field) => {
       if (field.content) {
-        const elements = this._metaService.getTags(`name="${field.name}"`);
+        const elements = this._meta.getTags(`name="${field.name}"`);
         if (elements.length) {
-          this._metaService.updateTag({ name: field.name, content: field.content }, `name="${field.name}"`);
+          this._meta.updateTag({ name: field.name, content: field.content }, `name="${field.name}"`);
         } else {
-          this._metaService.updateTag({ name: field.name, content: field.content });
+          this._meta.updateTag({ name: field.name, content: field.content });
         }
       }
     });

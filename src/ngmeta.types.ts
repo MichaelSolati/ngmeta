@@ -77,7 +77,7 @@ export type GoogleMeta = {
 }
 
 /**
- * Interface for all Google microdata meta details in head.
+ * Interface for all Twitter microdata meta details in head.
  */
 export type TwitterMeta = {
   /**
