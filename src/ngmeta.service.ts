@@ -28,16 +28,21 @@ export class NgMeta {
 
   /**
    * Scroll to top of page.
+   * 
+   * @return Current instance of the NgMeta service.
    */
-  scrollToTop(): void {
+  scrollToTop(): NgMeta {
     if (this._scroll && (typeof window !== 'undefined') && !window.location.pathname.includes('#')) {
       window.scrollTo(0, 0);
     }
+    return this;
   }
 
   /**
    * Sets all meta details for page.
-   * @param param0 
+   * 
+   * @param param0 All meta details in head.
+   * @return Current instance of the NgMeta service.
    */
   setAll({
     title,
@@ -47,7 +52,7 @@ export class NgMeta {
     twitter
   }:
   AllMeta
-  ): void {
+  ): NgMeta {
     this.setTitle(title);
     this.setDescription(description);
     this.setFacebook({ title, description, image, url: canonical });
@@ -55,29 +60,33 @@ export class NgMeta {
     this.setTwitter({ title, description, image, site: twitter });
     this.setCanonical(canonical);
     this.scrollToTop();
+    return this;
   }
 
   /**
    * Sets canonical URL of web page.
+   * 
    * @param canonical The canonical URL for your page.
+   * @return Current instance of the NgMeta service.
    */
-  setCanonical(canonical: string = this._dom.URL): void {
+  setCanonical(canonical: string = this._dom.URL): NgMeta {
     let element: HTMLElement = this._dom.querySelector("link[rel=\'canonical\']");
-
     if (!element) {
       element = this._dom.createElement('link');
       element.setAttribute('rel', 'canonical');
       this._dom.head.appendChild(element);
     }
-
     element.setAttribute('href', canonical);
+    return this;
   }
 
   /**
    * Sets description of web page.
+   * 
    * @param description Description relating to the content of page.
+   * @return Current instance of the NgMeta service.
    */
-  setDescription(description: string): void {
+  setDescription(description: string): NgMeta {
     const name = 'description';
     const elements = this._meta.getTags(`name="${name}"`);
     if (elements.length) {
@@ -85,16 +94,19 @@ export class NgMeta {
     } else {
       this._meta.addTag({ name: 'description', content: description });
     }
+    return this;
   }
 
   /**
    * Sets Open Graph tags for optimal display on Facebook.
-   * @param param0 
+   * 
+   * @param param0 All Facebook Open Graph meta details in head.
+   * @return Current instance of the NgMeta service.
    */
   setFacebook(
     { locale, type, title, description, image, url = this._dom.URL, appId }:
     FacebookMeta
-  ): void {
+  ): NgMeta {
     const fields = [
       { property: 'og:locale', content: locale },
       { property: 'og:type', content: type },
@@ -115,16 +127,19 @@ export class NgMeta {
         }
       }
     });
+    return this;
   }
 
   /**
    * Sets microdata tags for optimal display on Google.
-   * @param param0 
+   * 
+   * @param param0 All Google microdata meta details in head.
+   * @return Current instance of the NgMeta service.
    */
   setGoogle(
     { title, description, image }:
     GoogleMeta
-  ): void {
+  ): NgMeta {
     const fields = [
       { itemprop: 'title', content: title },
       { itemprop: 'description', content: description },
@@ -141,32 +156,41 @@ export class NgMeta {
         }
       }
     });
+    return this;
   }
 
   /**
    * Sets if after `setAll` window will scroll to top.
+   * 
    * @param scroll Boolean of wether to scroll to top or not.
+   * @return Current instance of the NgMeta service.
    */
-  setScroll(scroll: boolean): void {
+  setScroll(scroll: boolean): NgMeta {
     this._scroll = scroll;
+    return this;
   }
 
   /**
    * Sets document's title shown in a browser's title bar or a page's tab.
+   * 
    * @param title Document's title.
+   * @return Current instance of the NgMeta service.
    */
-  setTitle(title: string): void {
+  setTitle(title: string): NgMeta {
     this._title.setTitle(title);
+    return this;
   }
 
   /**
    * Sets tags for optimal display as a Twitter card.
-   * @param param0 
+   * 
+   * @param param0 All Twitter microdata meta details in head.
+   * @return Current instance of the NgMeta service.
    */
   setTwitter(
     { title, description, image, alt, site }:
     TwitterMeta
-  ): void {
+  ): NgMeta {
     const fields = [
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: title },
@@ -186,5 +210,6 @@ export class NgMeta {
         }
       }
     });
+    return this;
   }
 }
