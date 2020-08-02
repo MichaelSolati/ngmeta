@@ -27,6 +27,15 @@ export class NgMeta {
   }
 
   /**
+   * Scroll to top of page.
+   */
+  scrollToTop(): void {
+    if (this._scroll && (typeof window !== 'undefined') && !window.location.pathname.includes('#')) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  /**
    * Sets all meta details for page.
    * @param param0 
    */
@@ -45,7 +54,7 @@ export class NgMeta {
     this.setGoogle({ title, description, image });
     this.setTwitter({ title, description, image, site: twitter });
     this.setCanonical(canonical);
-    this._scrollToTop();
+    this.scrollToTop();
   }
 
   /**
@@ -177,11 +186,5 @@ export class NgMeta {
         }
       }
     });
-  }
-
-  private _scrollToTop(): void {
-    if (this._scroll && (typeof window !== 'undefined') && !window.location.pathname.includes('#')) {
-      window.scrollTo(0, 0);
-    }
   }
 }
