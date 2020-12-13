@@ -1,3 +1,17 @@
+## 11.0.0 (2020-12-13)
+
+##### Build System / Dependencies
+
+*  update GitHub Actions ([4dc7cd19](https://github.com/MichaelSolati/ngmeta/commit/4dc7cd19d298382547f9c5e46b5609329dd14dad))
+
+##### Chores
+
+*  update dependencies ([a7a0278c](https://github.com/MichaelSolati/ngmeta/commit/a7a0278c19257cee839f304592e533f416ec9d5a))
+
+##### Code Style Changes
+
+* **lint:**  add linter ([b7df3105](https://github.com/MichaelSolati/ngmeta/commit/b7df3105ad3e6957fab345e4467a6fac3c2b0142))
+
 ### 10.1.0 (2020-08-02)
 
 ##### New Features
