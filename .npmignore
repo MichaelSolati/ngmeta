@@ -1,8 +1,0 @@
-## Folders
-docs/
-src/
-
-## Files
-.gitignore
-tsconfig.json
-tslint.json
