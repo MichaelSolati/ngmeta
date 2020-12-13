@@ -1,0 +1,19 @@
+name: Lint and Test
+on: [push, pull_request]
+jobs:
+  lint_and_test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: NPM Install
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm run test

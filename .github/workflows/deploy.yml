@@ -1,4 +1,4 @@
-name: Release CI
+name: Deploy
 on:
   push:
     tags:
@@ -7,8 +7,8 @@ env:
   NPM_EMAIL: ${{ secrets.NPM_EMAIL }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
-  lint_test_and_deploy:
-    name: Lint, Test, and Deploy
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,21 +24,9 @@ jobs:
           echo "_auth=$NPM_TOKEN" >>  /home/runner/work/_temp/.npmrc
           echo "email=$NPM_EMAIL" >>  /home/runner/work/_temp/.npmrc
           echo "always-auth=true" >>  /home/runner/work/_temp/.npmrc
-      - name: NPM Cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       - name: NPM Install
         run: npm install
-      - name: Lint
-        run: echo "NO LINTING YET"
-      - name: Test
-        run: echo "NO TESTS YET"
       - name: Build
         run: npm run build
       - name: NPM Publish
         run: npm publish
-      
