@@ -22,7 +22,7 @@ export type AllMeta = {
    * The Twitter @username the card should be attributed to.
    */
   twitter?: string;
-}
+};
 
 /**
  * Interface for all Facebook Open Graph meta details in head.
@@ -56,7 +56,7 @@ export type FacebookMeta = {
    * In order to use Facebook Insights you must add the app ID to your page.
    */
   appId?: string;
-}
+};
 
 /**
  * Interface for all Google microdata meta details in head.
@@ -74,7 +74,7 @@ export type GoogleMeta = {
    * Image URL for social media cards.
    */
   image?: string;
-}
+};
 
 /**
  * Interface for all Twitter microdata meta details in head.
@@ -100,4 +100,4 @@ export type TwitterMeta = {
    * The Twitter @username the card should be attributed to.
    */
   site?: string;
-}
+};
