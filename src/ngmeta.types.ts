@@ -1,7 +1,7 @@
 /**
  * Interface for all meta details in head.
  */
-export type AllMeta = {
+export interface AllMeta {
   /**
    * Document's title that is shown in a browser's title bar or a page's tab.
    */
@@ -22,12 +22,12 @@ export type AllMeta = {
    * The Twitter @username the card should be attributed to.
    */
   twitter?: string;
-};
+}
 
 /**
  * Interface for all Facebook Open Graph meta details in head.
  */
-export type FacebookMeta = {
+export interface FacebookMeta {
   /**
    * The locale of the resource.
    */
@@ -56,12 +56,12 @@ export type FacebookMeta = {
    * In order to use Facebook Insights you must add the app ID to your page.
    */
   appId?: string;
-};
+}
 
 /**
  * Interface for all Google microdata meta details in head.
  */
-export type GoogleMeta = {
+export interface GoogleMeta {
   /**
    * Document's title that is shown in a browser's title bar or a page's tab.
    */
@@ -74,12 +74,38 @@ export type GoogleMeta = {
    * Image URL for social media cards.
    */
   image?: string;
-};
+}
+
+/**
+ * Interface for all assorted tag elements in head.
+ */
+export interface TagData {
+  /**
+   * Tag name of HTML Element.
+   */
+  type: 'base' | 'link' | 'meta' | 'noscript' | 'script' | 'style';
+  /**
+   * A `DOMString` containing the HTML serialization of the element's descendants.
+   */
+  innerHTML?: string;
+  /**
+   * A `DOMString` representing the rendered text content of an element.
+   */
+  innerText?: string;
+  /**
+   * The `textContent` property of the `Node` interface represents the text content of the node and its descendants.
+   */
+  textContent?: string;
+  /**
+   * Any attribute to set in element.
+   */
+  [attribute: string]: boolean | number | string | undefined;
+}
 
 /**
  * Interface for all Twitter microdata meta details in head.
  */
-export type TwitterMeta = {
+export interface TwitterMeta {
   /**
    * A concise title for the related content.
    */
@@ -100,4 +126,4 @@ export type TwitterMeta = {
    * The Twitter @username the card should be attributed to.
    */
   site?: string;
-};
+}

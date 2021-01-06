@@ -2,7 +2,13 @@ import {Injectable, Inject} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {Title, Meta} from '@angular/platform-browser';
 
-import {AllMeta, FacebookMeta, GoogleMeta, TwitterMeta} from './ngmeta.types';
+import {
+  AllMeta,
+  FacebookMeta,
+  GoogleMeta,
+  TagData,
+  TwitterMeta,
+} from './ngmeta.types';
 
 /**
  * Service that allows setting and updating of meta tags, title tags, and canonical tags.
@@ -188,6 +194,72 @@ export class NgMeta {
    */
   setScroll(scroll: boolean): NgMeta {
     this._scroll = scroll;
+    return this;
+  }
+
+  /**
+   * Sets a HTML element in the head with any attributes defined in object.
+   * @param tagData Details for tag to set in head.
+   * @param overwrite Whether this method should overwrite an existing instance of the tag. Set to false by default.
+   * @return Current instance of the NgMeta service.
+   */
+  setTag(tagData: TagData, overwrite = false): NgMeta {
+    tagData.type = tagData.type as
+      | 'base'
+      | 'link'
+      | 'meta'
+      | 'noscript'
+      | 'script'
+      | 'style';
+    const element: HTMLElement = this._dom.createElement(tagData.type);
+
+    if (overwrite) {
+      switch (tagData.type) {
+        case 'base':
+          this._meta.removeTag('base');
+          break;
+        case 'link':
+          if (tagData.href) {
+            this._meta.removeTag(`link[href='${tagData.href}']`);
+          }
+          break;
+        case 'meta':
+          if (tagData.name) {
+            this._meta.removeTag(`meta[name='${tagData.name}']`);
+          }
+          break;
+        case 'script':
+          if (tagData.src) {
+            this._meta.removeTag(`script[src='${tagData.src}']`);
+          }
+          break;
+      }
+    }
+
+    Object.keys(tagData).forEach((attribute: string) => {
+      const value = tagData[attribute];
+
+      if (attribute === 'type') {
+        return;
+      } else if (
+        ['innerHTML', 'innerText', 'textContent'].includes(attribute)
+      ) {
+        if (typeof value === 'string') {
+          element[
+            attribute as 'innerHTML' | 'innerText' | 'textContent'
+          ] = value;
+        }
+      } else if (typeof value === 'boolean' || value === undefined) {
+        if (value) {
+          element.setAttribute(attribute, '');
+        }
+      } else {
+        element.setAttribute(attribute, value.toString());
+      }
+    });
+
+    this._dom.head.appendChild(element);
+
     return this;
   }
 
