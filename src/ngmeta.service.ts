@@ -7,6 +7,7 @@ import {
   FacebookMeta,
   GoogleMeta,
   TagData,
+  TagType,
   TwitterMeta,
 } from './ngmeta.types';
 
@@ -199,22 +200,16 @@ export class NgMeta {
 
   /**
    * Sets a HTML element in the head with any attributes defined in object.
+   * @param tagType Tag name of HTML Element.
    * @param tagData Details for tag to set in head.
    * @param overwrite Whether this method should overwrite an existing instance of the tag. Set to false by default.
    * @return Current instance of the NgMeta service.
    */
-  setTag(tagData: TagData, overwrite = false): NgMeta {
-    tagData.type = tagData.type as
-      | 'base'
-      | 'link'
-      | 'meta'
-      | 'noscript'
-      | 'script'
-      | 'style';
-    const element: HTMLElement = this._dom.createElement(tagData.type);
+  setTag(tagType: TagType, tagData: TagData, overwrite = false): NgMeta {
+    const element: HTMLElement = this._dom.createElement(tagType);
 
     if (overwrite) {
-      switch (tagData.type) {
+      switch (tagType) {
         case 'base':
           this._meta.removeTag('base');
           break;
@@ -238,12 +233,7 @@ export class NgMeta {
 
     Object.keys(tagData).forEach((attribute: string) => {
       const value = tagData[attribute];
-
-      if (attribute === 'type') {
-        return;
-      } else if (
-        ['innerHTML', 'innerText', 'textContent'].includes(attribute)
-      ) {
+      if (['innerHTML', 'innerText', 'textContent'].includes(attribute)) {
         if (typeof value === 'string') {
           element[
             attribute as 'innerHTML' | 'innerText' | 'textContent'

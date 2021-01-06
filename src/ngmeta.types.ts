@@ -81,10 +81,6 @@ export interface GoogleMeta {
  */
 export interface TagData {
   /**
-   * Tag name of HTML Element.
-   */
-  type: 'base' | 'link' | 'meta' | 'noscript' | 'script' | 'style';
-  /**
    * A `DOMString` containing the HTML serialization of the element's descendants.
    */
   innerHTML?: string;
@@ -101,6 +97,17 @@ export interface TagData {
    */
   [attribute: string]: boolean | number | string | undefined;
 }
+
+/**
+ * Tag name of HTML Element.
+ */
+export type TagType =
+  | 'base'
+  | 'link'
+  | 'meta'
+  | 'noscript'
+  | 'script'
+  | 'style';
 
 /**
  * Interface for all Twitter microdata meta details in head.
