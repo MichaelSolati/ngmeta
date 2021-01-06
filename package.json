@@ -1,6 +1,6 @@
 {
   "name": "ngmeta",
-  "version": "11.1.0",
+  "version": "11.2.0",
   "description": "A tool for updating meta tags in an Angular application.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
