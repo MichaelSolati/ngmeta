@@ -1,3 +1,9 @@
+### 11.1.0 (2021-01-06)
+
+##### New Features
+
+* **setTag:**  add method to set miscellaneous tags in head ([ef2c8acf](https://github.com/MichaelSolati/ngmeta/commit/ef2c8acfd9edd90398e936c014a032efe6092fde))
+
 ## 11.0.0 (2020-12-13)
 
 ##### Build System / Dependencies
