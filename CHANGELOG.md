@@ -1,3 +1,9 @@
+### 11.2.0 (2021-01-06)
+
+##### Bug Fixes
+
+* **setTag:**  allow for type attribute of element ([8642a3d7](https://github.com/MichaelSolati/ngmeta/commit/8642a3d7c73e4df9ec09ee3016a5794e440f79bc))
+
 ### 11.1.0 (2021-01-06)
 
 ##### New Features
