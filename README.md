@@ -2,7 +2,6 @@
 
 [![npm](https://img.shields.io/npm/v/ngmeta)](https://www.npmjs.com/package/ngmeta)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/ngmeta)](https://bundlephobia.com/result?p=ngmeta)
-[![David](https://img.shields.io/david/michaelsolati/ngmeta)](https://david-dm.org/michaelsolati/ngmeta)
 [![GitHub stars](https://img.shields.io/github/stars/MichaelSolati/ngmeta)](https://github.com/MichaelSolati/ngmeta/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/MichaelSolati/ngmeta)](https://github.com/MichaelSolati/ngmeta/network/members)
 
@@ -18,7 +17,7 @@ A tool for updating meta tags in an Angular application.
 ## Getting Started
 
 ```bash
-npm install --save ngmeta
+npm i ngmeta
 ```
 
 ## How To Use

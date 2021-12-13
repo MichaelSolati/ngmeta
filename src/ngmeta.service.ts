@@ -235,9 +235,8 @@ export class NgMeta {
       const value = tagData[attribute];
       if (['innerHTML', 'innerText', 'textContent'].includes(attribute)) {
         if (typeof value === 'string') {
-          element[
-            attribute as 'innerHTML' | 'innerText' | 'textContent'
-          ] = value;
+          element[attribute as 'innerHTML' | 'innerText' | 'textContent'] =
+            value;
         }
       } else if (typeof value === 'boolean' || value === undefined) {
         if (value) {
