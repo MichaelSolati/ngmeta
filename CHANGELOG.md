@@ -1,3 +1,10 @@
+## 12.0.0 (2021-12-13)
+
+##### Chores
+
+* **actions:**  update workflows ([1847aeca](https://github.com/MichaelSolati/ngmeta/commit/1847aecacfc8f12bd3600fc374c9347b91ebdd7b))
+*  update dependencies ([2f979cc0](https://github.com/MichaelSolati/ngmeta/commit/2f979cc00aa29e08bfd3cf90632d4d9ae33dfe49))
+
 ### 11.2.0 (2021-01-06)
 
 ##### Bug Fixes
