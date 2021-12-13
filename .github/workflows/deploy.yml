@@ -3,9 +3,6 @@ on:
   push:
     tags:
       - v*
-env:
-  NPM_EMAIL: ${{ secrets.NPM_EMAIL }}
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
   deploy:
     name: Deploy
@@ -14,19 +11,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 14.x
-          registry-url: https://registry.npmjs.org/
-      - name: Register NPM Token
-        run: |
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /home/runner/work/_temp/.npmrc
-          echo "_auth=$NPM_TOKEN" >>  /home/runner/work/_temp/.npmrc
-          echo "email=$NPM_EMAIL" >>  /home/runner/work/_temp/.npmrc
-          echo "always-auth=true" >>  /home/runner/work/_temp/.npmrc
+          node-version: 14
       - name: NPM Install
-        run: npm install
+        run: npm ci
       - name: Build
         run: npm run build
       - name: NPM Publish
-        run: npm publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
