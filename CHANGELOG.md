@@ -1,3 +1,9 @@
+## 13.0.0 (2022-04-10)
+
+##### Chores
+
+*  update dependencies ([47b19783](https://github.com/MichaelSolati/ngmeta/commit/47b19783bed126baa4810ba47571701e64bf3c7b))
+
 ## 12.0.0 (2021-12-13)
 
 ##### Chores
